@@ -31,3 +31,6 @@
 
 补丁地址：https://catalog.update.microsoft.com/v7/site/Search.aspx?q=KB4551762
 
+## 实现原理
+
+推荐阅读：[通过反射DLL注入来构建后渗透模块（第一课）](https://payloads.online/archivers/2020-03-02/1)
